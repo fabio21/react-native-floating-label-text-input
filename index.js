@@ -92,6 +92,7 @@ class FloatLabelTextField extends Component {
       focused: false,
       text: this.props.value,
       password: this.props.secureTextEntry,
+      disabled: this.props.disabled,
       icEye: require("../../assets/icon/lock.png")
     };
   }
@@ -119,6 +120,7 @@ class FloatLabelTextField extends Component {
   }
 
   render() {
+    const {disabled} = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.viewContainer}>
@@ -160,21 +162,17 @@ class FloatLabelTextField extends Component {
                 secureTextEntry={this.state.password}
               />
             </TextFieldHolder>
-
             <Image
               style={[styles.iconContainer]}
               source={this.placeholderIconValue()}
             />
-
-            <TouchableOpacity
-              style={[styles.touch]}
-              onPress={this.changePwdType}
-            >
-              <Image
-                style={[styles.iconContainerButton]}
-                source={this.placeholderIconValueButton()}
-              />
-            </TouchableOpacity>
+            {console.log(this.props.disabled)}
+            {
+              disabled ? null :
+              <TouchableOpacity style={[styles.touch]} onPress={this.changePwdType}>
+                <Image style={[styles.iconContainerButton]} source={this.placeholderIconValueButton()}/>
+              </TouchableOpacity>
+            }
           </View>
         </View>
       </View>
