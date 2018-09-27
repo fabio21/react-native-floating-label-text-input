@@ -85,14 +85,14 @@ class TextFieldHolder extends Component {
   }
 }
 
-class FloatLabelTextFieldIcon extends Component {
+class FloatLabelTextField extends Component {
   constructor(props) {
     super(props);
     this.state = {
       focused: false,
       text: this.props.value,
       password: this.props.secureTextEntry,
-      icEye: require("./recourses/lock.png")
+      icEye: require("../../assets/icon/lock.png")
     };
   }
 
@@ -180,12 +180,12 @@ class FloatLabelTextFieldIcon extends Component {
 		let newState;
 		if (this.state.password) {
 			newState = {
-				icEye: require('./recourses/lock-open.png'),
+				icEye: require('../../assets/icon/lock-open.png'),
 				password: false
 			}
 		} else {
 			newState = {
-				icEye: require('./recourses/lock.png'),
+				icEye: require('../../assets/icon/lock.png'),
 				password: true
 			}
 		}
@@ -341,4 +341,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default FloatLabelTextFieldIcon;
+export default FloatLabelTextField;

@@ -1,5 +1,5 @@
 {
-  "name": "react-native-floating-label-text-input-icon",
+  "name": "react-native-floating-label-text-input",
   "version": "0.1.5",
   "description": "iOS text input with animated floating label",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:eyaleizenberg/react-native-floating-label-text-input-icon.git"
+    "url": "git@github.com:eyaleizenberg/react-native-floating-label-text-input.git"
   },
   "keywords": [
     "react-native",
@@ -24,7 +24,7 @@
   "author": "Eyal Eizenberg <eyal.eizenberg@samanage.com> (https://github.com/eyaleizenberg)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eyaleizenberg/react-native-floating-label-text-input-icon/issues"
+    "url": "https://github.com/eyaleizenberg/react-native-floating-label-text-input/issues"
   },
-  "homepage": "https://github.com/eyaleizenberg/react-native-floating-label-text-input-icon"
+  "homepage": "https://github.com/eyaleizenberg/react-native-floating-label-text-input"
 }
