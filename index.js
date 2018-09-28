@@ -10,7 +10,7 @@ import {
   TouchableOpacity
 } from "react-native";
 
-var FIELD_HEIGHT = 50;
+var FIELD_HEIGHT = 45;
 var ICON_SIZE = 25;
 var PADDING_LEFT = 30;
 
@@ -18,11 +18,11 @@ class FloatingLabel extends Component {
   constructor(props) {
     super(props);
 
-    let initialPadding = 9;
+    let initialPadding = 3;
     let initialOpacity = 0;
 
     if (this.props.visible) {
-      initialPadding = 5;
+      initialPadding = 1.5;
       initialOpacity = 1;
     }
 
@@ -34,7 +34,7 @@ class FloatingLabel extends Component {
 
   componentWillReceiveProps(newProps) {
     Animated.timing(this.state.paddingAnim, {
-      toValue: newProps.visible ? 5 : 9,
+      toValue: newProps.visible ? 1.5 : 3,
       duration: 230
     }).start();
 
@@ -65,13 +65,13 @@ class TextFieldHolder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      marginAnim: new Animated.Value(this.props.withValue ? 10 : 0)
+      marginAnim: new Animated.Value(this.props.withValue ? 12 : 0)
     };
   }
 
   componentWillReceiveProps(newProps) {
     return Animated.timing(this.state.marginAnim, {
-      toValue: newProps.withValue ? 10 : 0,
+      toValue: newProps.withValue ? 12 : 0,
       duration: 230
     }).start();
   }
@@ -274,14 +274,16 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     justifyContent: "center",
     height: FIELD_HEIGHT,
-    margin: 10
+    margin: 0
   },
   viewContainer: {
     flex: 1,
-    flexDirection: "row"
+    flexDirection: "row",
+    alignItems:'flex-end'
   },
   paddingView: {
-    width: 5
+    width: 0,
+    padding:0,
   },
   floatingLabel: {
     position: "absolute",
@@ -309,13 +311,14 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent"
   },
   withBorder: {
-    borderBottomWidth: 1 / 2,
+     borderBottomWidth: 1 / 2,
     borderColor: "#C8C7CC"
   },
   valueText: {
     height: Platform.OS == "ios" ? 20 : 60,
     fontSize: 16,
-    color: "#111111"
+    color: "#111111",
+  
   },
   focused: {
     color: "#111111"
