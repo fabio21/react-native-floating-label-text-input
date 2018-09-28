@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent"
   },
   withBorder: {
-     borderBottomWidth: 1 / 2,
+    borderBottomWidth: 1 / 2,
     borderColor: "#C8C7CC"
   },
   valueText: {
@@ -328,7 +328,6 @@ const styles = StyleSheet.create({
     height: ICON_SIZE,
     left: 0,
     resizeMode: "contain",
-    top: (FIELD_HEIGHT - ICON_SIZE) / 2,
     position: "absolute"
   },
   iconContainerButton: {
@@ -336,7 +335,7 @@ const styles = StyleSheet.create({
     height: ICON_SIZE,
     right: 0,
     resizeMode: "contain",
-    top: (FIELD_HEIGHT - ICON_SIZE) / 2,
+    top: (FIELD_HEIGHT - ICON_SIZE) / 3,
     position: "absolute",
     backgroundColor: "transparent"
   },
