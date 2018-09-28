@@ -22,7 +22,7 @@ class FloatingLabel extends Component {
     let initialOpacity = 0;
 
     if (this.props.visible) {
-      initialPadding = 1.5;
+      initialPadding = 1;
       initialOpacity = 1;
     }
 
@@ -34,7 +34,7 @@ class FloatingLabel extends Component {
 
   componentWillReceiveProps(newProps) {
     Animated.timing(this.state.paddingAnim, {
-      toValue: newProps.visible ? 1.5 : 3,
+      toValue: newProps.visible ? 1 : 3,
       duration: 230
     }).start();
 
@@ -65,13 +65,13 @@ class TextFieldHolder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      marginAnim: new Animated.Value(this.props.withValue ? 12 : 0)
+      marginAnim: new Animated.Value(this.props.withValue ? 13 : 0)
     };
   }
 
   componentWillReceiveProps(newProps) {
     return Animated.timing(this.state.marginAnim, {
-      toValue: newProps.withValue ? 12 : 0,
+      toValue: newProps.withValue ? 13 : 0,
       duration: 230
     }).start();
   }
@@ -274,12 +274,13 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     justifyContent: "center",
     height: FIELD_HEIGHT,
-    margin: 0
+    margin: 2,
   },
   viewContainer: {
     flex: 1,
     flexDirection: "row",
-    alignItems:'flex-end'
+    alignItems:'flex-end',
+    alignContent:'flex-end',
   },
   paddingView: {
     width: 0,
@@ -294,7 +295,7 @@ const styles = StyleSheet.create({
     height: 10,
     fontSize: 9,
     backgroundColor: "transparent",
-    color: "#ddd"
+    color: "gray"
   },
   paddingLeft: {
     paddingLeft: PADDING_LEFT
@@ -315,7 +316,7 @@ const styles = StyleSheet.create({
     borderColor: "#C8C7CC"
   },
   valueText: {
-    height: Platform.OS == "ios" ? 20 : 60,
+    height: 25,
     fontSize: 16,
     color: "#111111",
   
