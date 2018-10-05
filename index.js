@@ -93,6 +93,7 @@ class FloatLabelTextField extends Component {
       text: this.props.value,
       password: this.props.secureTextEntry,
       disabled: this.props.disabled,
+      placeholderTextColor: this.props.placeholderTextColor ? this.props.placeholderTextColor  : "#707070",  
       icEye: require("../../assets/icon/lock.png")
     };
   }
@@ -120,7 +121,7 @@ class FloatLabelTextField extends Component {
   }
 
   render() {
-    const {disabled} = this.state;
+    const {disabled, placeholderTextColor} = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.viewContainer}>
@@ -153,6 +154,7 @@ class FloatLabelTextField extends Component {
                 ref="input"
                 style={[styles.valueText, { color: "black" }]}
                 defaultValue={this.props.defaultValue}
+                placeholderTextColor={placeholderTextColor}
                 value={this.state.text}
                 maxLength={this.props.maxLength}
                 underlineColorAndroid="transparent"
