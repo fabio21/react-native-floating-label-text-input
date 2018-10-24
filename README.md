@@ -6,10 +6,13 @@ This component will render an iOS styled text field with floating label animatio
 Credits for the concept to Matt D. Smith ([@mds](http://www.twitter.com/mds)), and his [original design](http://dribbble.com/shots/1254439--GIF-Mobile-Form-Interaction?list=users).
 
 <p align="center">
-    <img src ="http://i.imgur.com/5dddNix.gif" />
+    <img src ="http://i.imgur.com/5dddNix.gif"/>
 </p>
 
-### Installation
+<p align="center">
+    <img src ="https://i.imgur.com/MVmQVUe.png"/>
+</p>
+
 ```npm install react-native-floating-label-text-input --save```
 
 ### Usage example
@@ -21,12 +24,14 @@ class SomeComponent extends Component {
   render () {
     return (
       <View>
-        <FloatLabelTextInput
-          placeholder={"name of field"}
-          value={"value of field"}
-          onFocus={@myFocusFunction}
-          onBlur={@onBlurFunction}
-        />
+     <FloatLabelTextField
+       placeholder={"Senha"}
+       placeholderIcon={require("../../assets/icon/account.png"}
+       value={this.state.password}
+       onChangeText={password => this.setState({ password })}
+       placeholderButton={require("../../assets/icon/lock.png"}
+       secureTextEntry={true}
+       disabled={false}/>
       </View>
     );
   }
