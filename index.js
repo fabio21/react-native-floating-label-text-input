@@ -10,9 +10,9 @@ import {
   TouchableOpacity
 } from "react-native";
 
-var FIELD_HEIGHT = 45;
-var ICON_SIZE = 25;
-var PADDING_LEFT = 30;
+var FIELD_HEIGHT = Platform.OS === 'ios' ? 45: 47
+var ICON_SIZE =  25;
+var PADDING_LEFT = Platform.OS === 'ios' ? 30 : 25
 
 class FloatingLabel extends Component {
   constructor(props) {
@@ -93,7 +93,6 @@ class FloatLabelTextField extends Component {
       text: this.props.value,
       password: this.props.secureTextEntry,
       disabled: this.props.disabled,
-      placeholderTextColor: this.props.placeholderTextColor ? this.props.placeholderTextColor  : "#707070",  
       icEye: require("../../assets/icon/lock.png")
     };
   }
@@ -121,7 +120,7 @@ class FloatLabelTextField extends Component {
   }
 
   render() {
-    const {disabled, placeholderTextColor} = this.state;
+    const {disabled} = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.viewContainer}>
@@ -154,7 +153,6 @@ class FloatLabelTextField extends Component {
                 ref="input"
                 style={[styles.valueText, { color: "black" }]}
                 defaultValue={this.props.defaultValue}
-                placeholderTextColor={placeholderTextColor}
                 value={this.state.text}
                 maxLength={this.props.maxLength}
                 underlineColorAndroid="transparent"
@@ -276,13 +274,15 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     justifyContent: "center",
     height: FIELD_HEIGHT,
-    margin: 2,
+    margin:Platform.OS === 'ios' ? 2 : 3,
   },
   viewContainer: {
     flex: 1,
     flexDirection: "row",
     alignItems:'flex-end',
     alignContent:'flex-end',
+    paddingTop:Platform.OS === 'ios' ? 2 : 3,
+    paddingBottom:Platform.OS === 'ios' ? 2 : 3,
   },
   paddingView: {
     width: 0,
@@ -294,8 +294,8 @@ const styles = StyleSheet.create({
     left: 0
   },
   fieldLabel: {
-    height: 10,
-    fontSize: 9,
+    height: Platform.OS === 'ios' ? 10: 11,
+    fontSize: Platform.OS === 'ios' ? 9 : 8,
     backgroundColor: "transparent",
     color: "gray"
   },
@@ -318,8 +318,8 @@ const styles = StyleSheet.create({
     borderColor: "#C8C7CC"
   },
   valueText: {
-    height: 25,
-    fontSize: 16,
+    height: Platform.OS === 'ios' ? 25 : 26,
+    fontSize: Platform.OS === 'ios' ? 16 : 14,
     color: "#111111",
   
   },
