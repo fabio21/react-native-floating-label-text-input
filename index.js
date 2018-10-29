@@ -10,9 +10,9 @@ import {
   TouchableOpacity
 } from "react-native";
 
-var FIELD_HEIGHT = Platform.OS === 'ios' ? 45: 47
-var ICON_SIZE =  25;
-var PADDING_LEFT = Platform.OS === 'ios' ? 30 : 25
+var FIELD_HEIGHT = Platform.OS === "ios" ? 45 : 47;
+var ICON_SIZE = 25;
+var PADDING_LEFT = Platform.OS === "ios" ? 30 : 25;
 
 class FloatingLabel extends Component {
   constructor(props) {
@@ -84,7 +84,8 @@ class TextFieldHolder extends Component {
     );
   }
 }
-
+var size = 0;
+var ms = "";
 class FloatLabelTextField extends Component {
   constructor(props) {
     super(props);
@@ -111,6 +112,7 @@ class FloatLabelTextField extends Component {
       return styles.withBorder;
     }
   }
+
   withIcon() {
     return this.props.placeholderIcon ? styles.paddingLeft : 0;
   }
@@ -120,7 +122,7 @@ class FloatLabelTextField extends Component {
   }
 
   render() {
-    const {disabled} = this.state;
+    const { disabled } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.viewContainer}>
@@ -158,7 +160,7 @@ class FloatLabelTextField extends Component {
                 underlineColorAndroid="transparent"
                 onFocus={() => this.setFocus()}
                 onBlur={() => this.unsetFocus()}
-                onChangeText={value => this.setText(value)}
+                onChangeText={(value) => this.setText(value)}
                 secureTextEntry={this.state.password}
               />
             </TextFieldHolder>
@@ -166,13 +168,17 @@ class FloatLabelTextField extends Component {
               style={[styles.iconContainer]}
               source={this.placeholderIconValue()}
             />
-            {console.log(this.props.disabled)}
-            {
-              disabled ? null :
-              <TouchableOpacity style={[styles.touch]} onPress={this.changePwdType}>
-                <Image style={[styles.iconContainerButton]} source={this.placeholderIconValueButton()}/>
+            {disabled ? null : (
+              <TouchableOpacity
+                style={[styles.touch]}
+                onPress={this.changePwdType}
+              >
+                <Image
+                  style={[styles.iconContainerButton]}
+                  source={this.placeholderIconValueButton()}
+                />
               </TouchableOpacity>
-            }
+            )}
           </View>
         </View>
       </View>
@@ -246,6 +252,7 @@ class FloatLabelTextField extends Component {
       return this.props.placeholder;
     }
   }
+
   placeholderIconValue() {
     if (this.props.placeholderIcon) {
       return this.props.placeholderIcon;
@@ -259,11 +266,12 @@ class FloatLabelTextField extends Component {
   }
 
   setText(value) {
+   
     this.setState({
       text: value
     });
     try {
-      return this.props.onChangeTextValue();
+      return this.props.onChangeTextValue(value);
     } catch (_error) {}
   }
 }
@@ -274,19 +282,19 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     justifyContent: "center",
     height: FIELD_HEIGHT,
-    margin:Platform.OS === 'ios' ? 2 : 3,
+    margin: Platform.OS === "ios" ? 2 : 3
   },
   viewContainer: {
     flex: 1,
     flexDirection: "row",
-    alignItems:'flex-end',
-    alignContent:'flex-end',
-    paddingTop:Platform.OS === 'ios' ? 2 : 3,
-    paddingBottom:Platform.OS === 'ios' ? 2 : 3,
+    alignItems: "flex-end",
+    alignContent: "flex-end",
+    paddingTop: Platform.OS === "ios" ? 2 : 3,
+    paddingBottom: Platform.OS === "ios" ? 2 : 3
   },
   paddingView: {
     width: 0,
-    padding:0,
+    padding: 0
   },
   floatingLabel: {
     position: "absolute",
@@ -294,8 +302,8 @@ const styles = StyleSheet.create({
     left: 0
   },
   fieldLabel: {
-    height: Platform.OS === 'ios' ? 10: 11,
-    fontSize: Platform.OS === 'ios' ? 9 : 8,
+    height: Platform.OS === "ios" ? 10 : 11,
+    fontSize: Platform.OS === "ios" ? 9 : 8,
     backgroundColor: "transparent",
     color: "gray"
   },
@@ -318,10 +326,9 @@ const styles = StyleSheet.create({
     borderColor: "#C8C7CC"
   },
   valueText: {
-    height: Platform.OS === 'ios' ? 25 : 26,
-    fontSize: Platform.OS === 'ios' ? 16 : 14,
-    color: "#111111",
-  
+    height: Platform.OS === "ios" ? 25 : 26,
+    fontSize: Platform.OS === "ios" ? 16 : 14,
+    color: "#111111"
   },
   focused: {
     color: "#111111"
